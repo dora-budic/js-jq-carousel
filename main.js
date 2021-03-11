@@ -97,6 +97,15 @@ function slideLeft() {
 function circleClick() {
   // Prendo le immagini
   var images = $('.slider-wrapper > .images img');
+
+  // Genero i pallini
+  for (var j = 0; j < 4; j++) {
+    $('.nav').append("<i class='fas fa-circle'>" + "</i>");
+  }
+
+  $('.nav i:first-child').addClass('active first');
+  $('.nav i:last-child').addClass('last');
+
   // Prendo i pallini
   var circles = $('.slider-wrapper > .nav i.fa-circle');
 
