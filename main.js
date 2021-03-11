@@ -2,6 +2,7 @@ $(document).ready(function () {
   clickRight();
   clickLeft();
   slider();
+  circleClick();
 });
 
 // Scorro tra le immagini verso destra (click arrow a destra)
@@ -38,6 +39,8 @@ function slider() {
     }
   });
 }
+
+
 
 // FUNZIONI per lo scorrimento
 function slideRight() {
@@ -88,4 +91,26 @@ function slideLeft() {
     circle.removeClass('active');
     circle.prev('i').addClass('active');
   }
+}
+
+// Cambio immmagine al click sul pallino
+function circleClick() {
+  // Prendo le immagini
+  var images = $('.slider-wrapper > .images img');
+  // Prendo i pallini
+  var circles = $('.slider-wrapper > .nav i.fa-circle');
+
+  circles.click(function() {
+    if (circles.hasClass('active') && images.hasClass('active')) {
+      circles.removeClass('active');
+      images.removeClass('active');
+      $(this).addClass('active');
+      for (var i = 0; i < 4; i++) {
+        if (circles[i] == this) {
+          var image = images[i];
+          $(image).addClass('active');
+        }
+      }
+    }
+  });
 }
