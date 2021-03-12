@@ -110,15 +110,13 @@ function circleClick() {
   var circles = $('.slider-wrapper > .nav i.fa-circle');
 
   circles.click(function() {
-    if (circles.hasClass('active') && images.hasClass('active')) {
-      circles.removeClass('active');
-      images.removeClass('active');
-      $(this).addClass('active');
-      for (var i = 0; i < 4; i++) {
-        if (circles[i] == this) {
-          var image = images[i];
-          $(image).addClass('active');
-        }
+    circles.removeClass('active');
+    images.removeClass('active');
+    $(this).addClass('active');
+    for (var i = 0; i < 4; i++) {
+      if (circles[i] == this) {
+        var image = images[i];
+        $(image).addClass('active');
       }
     }
   });
